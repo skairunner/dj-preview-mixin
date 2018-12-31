@@ -10,8 +10,8 @@ PreviewMixin overloads:
 2. `form_valid()`
 
 ### New members:
-* `edit_button_name`: The `name` attr for the button that triggers a return to the form view
-* `preview_button_name`: The `name` attr for the button that triggers a preview
+* `edit_button_name`: The `name` attr for the button that triggers a return to the form view. Default is 'edit'.
+* `preview_button_name`: The `name` attr for the button that triggers a preview. Default is 'preview'.
 
 ### New methods:
 
@@ -44,7 +44,9 @@ Template
 My var: {{ myvar }}
 <form action='POST'>
   {% csrf_token %}
-  {{ form }}
+  {% for field in form %}
+  {{ field.as_hidden }}
+  {% endfor %}
   <input type='submit' name='edit' value='Keep editing'>
   <input type='submit' name='submit' value='Submit'>
 </form>
