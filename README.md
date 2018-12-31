@@ -39,7 +39,7 @@ class EditModelView(PreviewMixin, UpdateView):
     	context['myvar'] = form.cleaned_data['myvar']
 ```
 Template
-```django-html
+```html
 {% if preview %}
 My var: {{ myvar }}
 <form action='POST'>
