@@ -1,3 +1,5 @@
+from django import forms
+
 class PreviewMixin:
     edit_button_name = 'edit'
     preview_button_name = 'preview'
@@ -19,5 +21,6 @@ class PreviewMixin:
         kwargs = super().get_context_data(**kwargs)
         if self.request.POST.get(self.preview_button_name):
             kwargs['preview'] = True
+            kwargs['form']._meta.widgets = {field_name: forms.HiddenInput() for field_name in self.model._meta.get_all_field_names()}
             self.preprocess_form(kwargs['form'], kwargs)
         return kwargs
