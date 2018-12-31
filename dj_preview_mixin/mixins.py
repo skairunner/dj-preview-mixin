@@ -20,6 +20,6 @@ class PreviewMixin:
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
         if self.request.POST.get(self.preview_button_name):
-            kwargs['preview'] = True
+            kwargs['ispreview'] = True
             self.preprocess_form(kwargs['form'], kwargs)
         return kwargs

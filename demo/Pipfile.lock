@@ -18,7 +18,7 @@
     "default": {
         "dj-preview-mixin": {
             "git": "https://github.com/skairunner/dj-preview-mixin.git",
-            "ref": "0d5b77a48b339b8642790b8e5bb6a29039fec6e3"
+            "ref": "75b413b5591186c0c2eb668761267cfa68afb303"
         },
         "django": {
             "hashes": [
