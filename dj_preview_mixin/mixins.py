@@ -6,7 +6,7 @@ class PreviewMixin:
     def form_valid(self, form):
         if self.request.POST.get(self.preview_button_name) or \
                 self.request.POST.get(self.edit_button_name):
-            return self.render_to_context(self.get_context_data(form=form))
+            return self.render_to_response(self.get_context_data(form=form))
         return super().form_valid(form)
 
     # This is where you can inject extra processing
