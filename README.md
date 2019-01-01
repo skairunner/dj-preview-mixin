@@ -15,10 +15,18 @@ PreviewMixin overloads:
 
 ### New methods:
 
-`def preprocess_form(self, form, context)`
+`def preprocess_preview(self, form, context)`
 **
+Allows the user to process the preview for viewing. Previewed data needs to be manually added to the context.
+
 **form**: The form that is being processed, after it is validated
 **context**: The context for the template renderer, like `get_context_data()`'s kwargs
+
+`def form_valid_nopreview(self, form)`
+
+This method is called if the form is valid and not an edit or preview action, and is equivalent to a typical form's `form_valid()`.
+
+**form**: The form that is being processed and is validated
 
 ### New template variables:
 * `ispreview`: `True` if preview has been triggered, otherwise `None`.

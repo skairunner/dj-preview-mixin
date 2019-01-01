@@ -12,7 +12,7 @@ class Edit(PreviewMixin, UpdateView):
     fields = ['data']
     template_name = 'genericmodel_form.html'
 
-    def preprocess_form(self, form, context):
+    def preprocess_preview(self, form, context):
         context['data'] = form.cleaned_data['data']
 
 class Detail(DetailView):
